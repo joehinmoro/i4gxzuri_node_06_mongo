@@ -4,7 +4,7 @@ Read the Documentation:
 
 1. Add Todo (CREATE)
 
-POST: "todos/"
+POST: "/"
 
 Format:
 
@@ -18,7 +18,7 @@ description : String
 
 2. Update/Edit Todo (UPDATE)
 
-PATCH: "todos/:id"
+PATCH: "/:id"
 
 Format:
 
@@ -32,14 +32,14 @@ description : String
 
 3. Delete Todo (DELETE)
 
-DELETE: "todos/:id"
+DELETE: "/:id"
 
 4. Get all Todos (INDEX)
 
-GET: "todos/"
+GET: "/"
 
 5. Get a single Todo (SHOW)
 
-GET: "todos/:id"
+GET: "/:id"
 
 Anything else results to a bad request (400)
