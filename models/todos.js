@@ -22,14 +22,14 @@ const todoSchema = new schema(
         },
         description: {
             type: String,
-            required: true,
+            default: "",
         },
     },
     { timestamps: true }
 );
 
 // Todo Model
-const Todo = mongoose.Model("Todo", todoSchema);
+const Todo = mongoose.model("Todo", todoSchema);
 
 // EXPORTS
 module.exports = Todo;
