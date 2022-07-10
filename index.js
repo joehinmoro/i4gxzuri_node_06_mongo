@@ -15,7 +15,6 @@ app.use(json());
 todoSeeds();
 
 // ROUTES
-
 // todo routes
 app.use("/todos", todoRoutes);
 
