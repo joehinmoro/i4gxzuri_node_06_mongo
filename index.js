@@ -16,7 +16,7 @@ todoSeeds();
 
 // ROUTES
 // todo routes
-app.use("/todos", todoRoutes);
+app.use("/", todoRoutes);
 
 // SERVER LISTEN
 // define port number

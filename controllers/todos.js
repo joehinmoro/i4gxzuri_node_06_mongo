@@ -20,7 +20,7 @@ const createTodo = async (req, res) => {
         await newTodo.save();
         console.log(newTodo);
         // redirect to show route of newly added todo
-        res.redirect(`/todos/${newTodo._id}`);
+        res.redirect(`/${newTodo._id}`);
     } catch (error) {
         // if error, send error message and status code
         res.status(500).json({ error: { message: "something went wrong", code: 500 } });
@@ -60,7 +60,7 @@ const updateTodo = async (req, res) => {
             { runValidators: true, new: true }
         );
         // redirect to show route of updated record
-        res.redirect(`/todos/${id}`);
+        res.redirect(`/${id}`);
     } catch (error) {
         // if error, send error message and status code
         res.status(500).json({ error: { message: "something went wrong", code: 500 } });
@@ -88,7 +88,7 @@ const deleteTodo = async (req, res) => {
         // delete todo document
         await Todo.findByIdAndDelete(id);
         // redirect to index route
-        res.redirect("/todos");
+        res.redirect("/");
     } catch (error) {
         // if error, send error message and status code
         res.status(500).json({ error: { message: "something went wrong", code: 500 } });
@@ -137,5 +137,17 @@ const getTodos = async (req, res) => {
     }
 };
 
+// 6. 400 Route (Bad Request)
+const _400Route = (req, res) => {
+    try {
+        // send 400 error if user makes a bad request
+        res.status(400).json({ error: { message: "bad request" } });
+    } catch (error) {
+        // if error, send error message and status code
+        res.status(500).json({ error: { message: "something went wrong" } });
+        console.log(error);
+    }
+};
+
 // EXPORTS
-module.exports = { createTodo, updateTodo, deleteTodo, getTodos, getTodo };
+module.exports = { createTodo, updateTodo, deleteTodo, getTodos, getTodo, _400Route };
